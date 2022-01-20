@@ -1,0 +1,13 @@
+findbar {
+    -moz-box-ordinal-group: 0 !important;
+    direction: rtl !important;
+    transition-property: unset !important;
+    transition-duration: unset !important;
+    transition-timing-function: unset !important;
+    border-top-width: 0 !important;
+    border-bottom: 1px solid var(--toolbox-border-bottom-color) !important;
+}
+
+findbar .findbar-textbox {
+    direction: ltr !important;
+}

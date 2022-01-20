@@ -1,0 +1,9 @@
+#urlbar-background {
+    border-radius: var(--urlbar-height) !important;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-background {
+    border-radius: 3px !important;
+    border-top-left-radius: calc(var(--urlbar-height) / 2) !important;
+    border-top-right-radius: calc(var(--urlbar-height) / 2) !important;
+}

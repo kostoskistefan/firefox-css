@@ -1,0 +1,60 @@
+.titlebar-spacer[type="pre-tabs"] {
+    display:none;
+}    
+
+/*** Proton Tabs Tweaks ***/
+
+/* Adjust tab corner shape, optionally remove space below tabs */
+
+#tabbrowser-tabs {
+    --user-tab-rounding: 8px;
+}
+
+.tab-background {
+    border-radius: var(--user-tab-rounding) var(--user-tab-rounding) 0px 0px !important; /* Connected */
+    margin-block: 1px 0 !important; /* Connected */
+}
+#scrollbutton-up, #scrollbutton-down { /* 6/10/2021 */
+    border-top-width: 1px !important;
+    border-bottom-width: 0 !important;
+}
+
+/* 1/16/2022 Tone down the Fx96 tab border with add-on themes in certain fallback situations */
+.tab-background:is([selected], [multiselected]):-moz-lwtheme {
+    --lwt-tabs-border-color: rgba(0, 0, 0, 0.5) !important;
+    border-bottom-color: transparent !important;
+}
+[brighttext="true"] .tab-background:is([selected], [multiselected]):-moz-lwtheme {
+    --lwt-tabs-border-color: rgba(255, 255, 255, 0.5) !important;
+    border-bottom-color: transparent !important;
+}
+
+/* Container color bar visibility */
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+    margin: 0px max(calc(var(--user-tab-rounding) - 3px), 0px) !important;
+}
+
+/* Inactive tabs: Shadow style */
+
+.tabbrowser-tab:not([selected=true]):not([multiselected=true]) .tab-background {
+    background-color: color-mix(in srgb, currentColor 8%, transparent);
+}
+
+/* Move container color bar to bottom of tab - updated 1/16/2022 */
+
+.tab-background {
+    --context-line-margin-adjust: 3px; /* 1/16/2022 */
+    --context-line-active-adjust: 1px; /* 1/16/2022 */
+}
+.tabbrowser-tab[usercontextid]:is([selected=true], [visuallyselected="true"], [multiselected]) .tab-background {
+    border-top: 1px solid transparent; /* 1/16/2022 Default border for consistency */
+}
+
+.tabbrowser-tab[usercontextid] > .tab-stack > .tab-background > .tab-context-line {
+    margin-top: calc(var(--tab-min-height) - var(--context-line-margin-adjust)) !important;
+}
+.tabbrowser-tab[usercontextid]:is([selected=true], [visuallyselected="true"], [multiselected])  > .tab-stack > .tab-background > .tab-context-line {
+    margin-top: calc(var(--tab-min-height) - var(--context-line-margin-adjust) - var(--context-line-active-adjust)) !important;
+}
+
+/* Tweak Options as of 1/12/2022; Generated Tue Jan 18 2022 21:41:48 GMT+0100 (Central European Standard Time) */

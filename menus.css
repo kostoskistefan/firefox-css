@@ -1,0 +1,16 @@
+#appMenu-popup {
+    --panel-border-color: transparent !important;
+    --panel-border-radius: 4px !important;
+}
+
+#contentAreaContextMenu {
+    --panel-border-color: #313742 !important;
+    --panel-color: white !important;
+    --panel-background: #313742 !important;
+}
+
+#contentAreaContextMenu > menuseparator,
+#context-navigation {
+    color: white !important;
+    background-color: #313742 !important;
+}
